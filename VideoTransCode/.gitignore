@@ -1,0 +1,9 @@
+# macOS 相关
+.DS_Store
+
+# 代码编译
+build/
+
+# 输出文件
+resource/*.yuv
+resource/*.pcm

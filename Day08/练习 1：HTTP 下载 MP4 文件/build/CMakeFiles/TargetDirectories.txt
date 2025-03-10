@@ -1,0 +1,14 @@
+/Users/leaderone/Downloads/learn-http/build/CMakeFiles/http_test.dir
+/Users/leaderone/Downloads/learn-http/build/CMakeFiles/edit_cache.dir
+/Users/leaderone/Downloads/learn-http/build/CMakeFiles/rebuild_cache.dir
+/Users/leaderone/Downloads/learn-http/build/CMakeFiles/list_install_components.dir
+/Users/leaderone/Downloads/learn-http/build/CMakeFiles/install.dir
+/Users/leaderone/Downloads/learn-http/build/CMakeFiles/install/local.dir
+/Users/leaderone/Downloads/learn-http/build/CMakeFiles/install/strip.dir
+/Users/leaderone/Downloads/learn-http/build/libghttp/CMakeFiles/ghttp.dir
+/Users/leaderone/Downloads/learn-http/build/libghttp/CMakeFiles/edit_cache.dir
+/Users/leaderone/Downloads/learn-http/build/libghttp/CMakeFiles/rebuild_cache.dir
+/Users/leaderone/Downloads/learn-http/build/libghttp/CMakeFiles/list_install_components.dir
+/Users/leaderone/Downloads/learn-http/build/libghttp/CMakeFiles/install.dir
+/Users/leaderone/Downloads/learn-http/build/libghttp/CMakeFiles/install/local.dir
+/Users/leaderone/Downloads/learn-http/build/libghttp/CMakeFiles/install/strip.dir

@@ -1,0 +1,12 @@
+/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build/CMakeFiles/server.dir
+/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build/CMakeFiles/client.dir
+/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build/CMakeFiles/edit_cache.dir
+/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build/CMakeFiles/rebuild_cache.dir
+/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build/CMakeFiles/list_install_components.dir
+/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build/CMakeFiles/install.dir
+/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build/CMakeFiles/install/local.dir
+/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build/CMakeFiles/install/strip.dir
+/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build/CMakeFiles/server_autogen_timestamp_deps.dir
+/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build/CMakeFiles/server_autogen.dir
+/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build/CMakeFiles/client_autogen_timestamp_deps.dir
+/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build/CMakeFiles/client_autogen.dir

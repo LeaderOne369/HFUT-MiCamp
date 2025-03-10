@@ -1,0 +1,50 @@
+[
+{
+  "directory": "/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build",
+  "command": "/usr/bin/clang++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build/server_autogen/include -I/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/include -I/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/src -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtNetwork.framework/Headers -std=c++20 -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -o CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.o -c /Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build/server_autogen/mocs_compilation.cpp",
+  "file": "/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build/server_autogen/mocs_compilation.cpp",
+  "output": "CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.o"
+},
+{
+  "directory": "/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build",
+  "command": "/usr/bin/clang++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build/server_autogen/include -I/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/include -I/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/src -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtNetwork.framework/Headers -std=c++20 -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -o CMakeFiles/server.dir/src/server.cpp.o -c /Users/leaderone/Desktop/study/MiCamp/Day06/TCP/src/server.cpp",
+  "file": "/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/src/server.cpp",
+  "output": "CMakeFiles/server.dir/src/server.cpp.o"
+},
+{
+  "directory": "/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build",
+  "command": "/usr/bin/clang++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build/server_autogen/include -I/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/include -I/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/src -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtNetwork.framework/Headers -std=c++20 -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -o CMakeFiles/server.dir/src/socket.cpp.o -c /Users/leaderone/Desktop/study/MiCamp/Day06/TCP/src/socket.cpp",
+  "file": "/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/src/socket.cpp",
+  "output": "CMakeFiles/server.dir/src/socket.cpp.o"
+},
+{
+  "directory": "/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build",
+  "command": "/usr/bin/clang++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build/server_autogen/include -I/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/include -I/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/src -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtNetwork.framework/Headers -std=c++20 -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -o CMakeFiles/server.dir/src/server_window.cpp.o -c /Users/leaderone/Desktop/study/MiCamp/Day06/TCP/src/server_window.cpp",
+  "file": "/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/src/server_window.cpp",
+  "output": "CMakeFiles/server.dir/src/server_window.cpp.o"
+},
+{
+  "directory": "/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build",
+  "command": "/usr/bin/clang++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build/client_autogen/include -I/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/include -I/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/src -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtNetwork.framework/Headers -std=c++20 -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -o CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.o -c /Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build/client_autogen/mocs_compilation.cpp",
+  "file": "/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build/client_autogen/mocs_compilation.cpp",
+  "output": "CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.o"
+},
+{
+  "directory": "/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build",
+  "command": "/usr/bin/clang++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build/client_autogen/include -I/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/include -I/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/src -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtNetwork.framework/Headers -std=c++20 -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -o CMakeFiles/client.dir/src/client.cpp.o -c /Users/leaderone/Desktop/study/MiCamp/Day06/TCP/src/client.cpp",
+  "file": "/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/src/client.cpp",
+  "output": "CMakeFiles/client.dir/src/client.cpp.o"
+},
+{
+  "directory": "/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build",
+  "command": "/usr/bin/clang++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build/client_autogen/include -I/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/include -I/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/src -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtNetwork.framework/Headers -std=c++20 -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -o CMakeFiles/client.dir/src/socket.cpp.o -c /Users/leaderone/Desktop/study/MiCamp/Day06/TCP/src/socket.cpp",
+  "file": "/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/src/socket.cpp",
+  "output": "CMakeFiles/client.dir/src/socket.cpp.o"
+},
+{
+  "directory": "/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build",
+  "command": "/usr/bin/clang++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -I/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build/client_autogen/include -I/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/include -I/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/src -isystem /opt/homebrew/opt/qt/lib/QtWidgets.framework/Headers -iframework /opt/homebrew/opt/qt/lib -isystem /opt/homebrew/opt/qt/lib/QtCore.framework/Headers -isystem /opt/homebrew/opt/qt/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/opt/qt/include -isystem /opt/homebrew/opt/qt/lib/QtGui.framework/Headers -isystem /opt/homebrew/opt/qt/lib/QtNetwork.framework/Headers -std=c++20 -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -o CMakeFiles/client.dir/src/client_window.cpp.o -c /Users/leaderone/Desktop/study/MiCamp/Day06/TCP/src/client_window.cpp",
+  "file": "/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/src/client_window.cpp",
+  "output": "CMakeFiles/client.dir/src/client_window.cpp.o"
+}
+]

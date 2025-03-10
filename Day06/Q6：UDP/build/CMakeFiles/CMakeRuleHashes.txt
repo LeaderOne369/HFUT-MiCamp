@@ -1,0 +1,5 @@
+# Hashes of file build rules.
+57bf8e3077a203577af0d544ea996cc1 src/client/CMakeFiles/client_qt_autogen
+86eab31522bf7874d2f0f879018c96e9 src/client/client_qt_autogen/timestamp
+1b9c23c3051d346874b53b8eee8414ac src/server/CMakeFiles/server_qt_autogen
+ad39878a177444b10f7b051d90e9771c src/server/server_qt_autogen/timestamp

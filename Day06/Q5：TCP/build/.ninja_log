@@ -1,0 +1,19 @@
+# ninja log v6
+10	37	1740819162590663163	client_autogen/timestamp	f837c5f25a036bef
+10	37	1740819162590663163	/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build/client_autogen/timestamp	f837c5f25a036bef
+11	731	1740818426965367000	/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build/server_autogen/timestamp	3e7046b3153c0126
+10	37	1740819162590663163	client_autogen/mocs_compilation.cpp	f837c5f25a036bef
+735	2522	1740818426980369765	CMakeFiles/client.dir/src/client.cpp.o	32b684abdeb754cc
+732	2638	1740818426976577613	CMakeFiles/server.dir/src/server.cpp.o	52fab754280062f9
+10	37	1740819162590663163	/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build/client_autogen/mocs_compilation.cpp	f837c5f25a036bef
+735	1822	1740818426980517598	CMakeFiles/client.dir/src/socket.cpp.o	1b8d6653488d0260
+2699	2818	1740818428944247693	server.app/Contents/MacOS/server	65cc450326167749
+37	1120	1740819162617418585	CMakeFiles/client.dir/src/client_window.cpp.o	d8589b966a60e95f
+734	2518	1740818426978823479	CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.o	367ac37c49f3546a
+1120	1287	1740819163700523511	client.app/Contents/MacOS/client	3f4ff0fc82328116
+732	2676	1740818426977016153	CMakeFiles/server.dir/src/server_window.cpp.o	ee17d2787e9c7e71
+11	731	1740818426965367000	server_autogen/mocs_compilation.cpp	3e7046b3153c0126
+11	731	1740818426965367000	server_autogen/timestamp	3e7046b3153c0126
+732	1815	1740818426976754029	CMakeFiles/server.dir/src/socket.cpp.o	d8c5baf145637f16
+731	2699	1740818426976381281	CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.o	90de44b3a7e7786b
+11	731	1740818426965367000	/Users/leaderone/Desktop/study/MiCamp/Day06/TCP/build/server_autogen/mocs_compilation.cpp	3e7046b3153c0126
