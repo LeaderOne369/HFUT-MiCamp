@@ -1,0 +1,8 @@
+Demuxer::init() - 开始初始化解复用器
+输入文件: /Users/leaderone/Desktop/study/MiCamp/VideoTransCode/resource/1.mp4
+找到视频流，索引: 0
+找到音频流，索引: 1
+Demuxer::init() - 初始化成功
+开始解复用线程...
+读取帧结束或错误: End of file
+解复用线程结束，共处理 3088 个包

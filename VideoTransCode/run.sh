@@ -8,12 +8,12 @@ OS=$(uname)
 
 if [ "$OS" = "Darwin" ]; then
     # macOS系统设置库路径
-    export DYLD_LIBRARY_PATH="$SCRIPT_DIR/build/lib:$DYLD_LIBRARY_PATH"
+    export DYLD_LIBRARY_PATH="$SCRIPT_DIR/lib:$DYLD_LIBRARY_PATH"
 elif [ "$OS" = "Linux" ]; then
     # 检测是否为Ubuntu
     if [ -f /etc/lsb-release ] && grep -q "Ubuntu" /etc/lsb-release; then
         # Ubuntu系统设置库路径
-        export LD_LIBRARY_PATH="$SCRIPT_DIR/build/lib:$LD_LIBRARY_PATH"
+        export LD_LIBRARY_PATH="$SCRIPT_DIR/lib:$LD_LIBRARY_PATH"
     else
         echo "本程序仅支持macOS和Ubuntu。"
         exit 1
