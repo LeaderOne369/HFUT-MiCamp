@@ -21,7 +21,7 @@ touch myName.txt
         printf("无法打开文件\n");
         return 1;
     }
-    fprintf(file, "徐力行\n");
+    fprintf(file, "我的名字\n");
     fclose(file);
 ```
 
@@ -40,9 +40,4 @@ touch myName.txt
     }
 ```
 
-### 输出结果：
-
-- 成功执行程序：
-  ![alt text](exec.png)
-- 成功写入名字：
-  <img src="txt.png" width="100%" />
+### 输出结果涉及个人隐私，已经删除。

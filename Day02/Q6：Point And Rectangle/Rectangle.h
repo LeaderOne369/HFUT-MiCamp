@@ -3,7 +3,8 @@
 
 #include "Point.h"
 
-class Rectangle {
+class Rectangle
+{
 private:
     Point topLeft;     // 左上角点
     Point bottomRight; // 右下角点
@@ -13,10 +14,10 @@ private:
 
 public:
     // 构造函数
-    Rectangle(const Point& tl = Point(), const Point& br = Point());
+    Rectangle(const Point &tl = Point(), const Point &br = Point());
 
     // 设置矩形的顶点
-    bool setPoints(const Point& tl, const Point& br);
+    bool setPoints(const Point &tl, const Point &br);
 
     // 从用户输入读取矩形的顶点
     bool inputRectangle();
@@ -28,4 +29,4 @@ public:
     double getArea() const;
 };
 
-#endif // RECTANGLE_H 
+#endif // RECTANGLE_H

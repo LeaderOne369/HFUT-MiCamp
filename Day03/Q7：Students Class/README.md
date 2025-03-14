@@ -22,13 +22,6 @@
 
 - 创建了 3 个学生：
 
-```c++
-vector<Student> students = {
-        Student("2022213386", "徐力行", 21, "男", 90.5, "软件工程", "大三"),
-        Student("2022213384", "陈远飞", 20, "男", 86.0, "软件工程", "大三"),
-        Student("2022213381", "郭灵杰", 21, "男", 85.5, "软件工程", "大三")};
-```
-
 - 演示了文件的写入和读取操作
 
 ```c++
@@ -75,14 +68,8 @@ vector<Student> students = {
          << stds[0].level() << endl;
 ```
 
-### 输出结果：
-
-#### 编译命令：
+### 编译命令：
 
 ```c
 g++ main.cpp Student.cpp -o students_program
 ```
-
-<img src="txt.png" width="100%" />
-
-![alt text](result.png)

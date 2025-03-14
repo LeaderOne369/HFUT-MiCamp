@@ -1,11 +1,15 @@
 #include <iostream>
 #include "hello.h"
 
-void print_hello() {
-    std::cout << "Hello, World!" << std::endl;
+using namespace std;
+
+void print_hello()
+{
+    cout << "Hello, World!" << endl;
 }
 
-int main() {
+int main()
+{
     print_hello();
     return 0;
 }

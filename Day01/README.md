@@ -78,7 +78,7 @@ git init
 2. **关联远程仓库**：
 
 ```bash
-git remote add origin git@partner-gitlab.mioffice.cn:nj-trainingcollege/miclassroom250224/cppgroup1/xulixing/day01.git
+git remote add origin git@your-gitlab-instance.com:your-group/your-repository-path.git
 ```
 
 3. **添加所有修改的文件**：
@@ -98,7 +98,3 @@ git commit -m "Initial commit"
 ```bash
 git push -u origin main
 ```
-
-上传成功如下所示：
-
-![Git上传成功](photo/Succeed.png)

@@ -1,7 +1,8 @@
 #ifndef POINT_H
 #define POINT_H
 
-class Point {
+class Point
+{
 private:
     double x;
     double y;
@@ -25,4 +26,4 @@ public:
     void display() const;
 };
 
-#endif // POINT_H 
+#endif // POINT_H

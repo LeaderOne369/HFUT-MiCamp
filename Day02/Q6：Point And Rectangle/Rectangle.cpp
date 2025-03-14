@@ -4,40 +4,48 @@
 
 using namespace std;
 
-Rectangle::Rectangle(const Point& tl, const Point& br) : topLeft(tl), bottomRight(br) {}
+Rectangle::Rectangle(const Point &tl, const Point &br) : topLeft(tl), bottomRight(br) {}
 
-bool Rectangle::isValid() const {
+bool Rectangle::isValid() const
+{
     // 检查两点是否在对角线上（即x和y坐标都不相同）
-    if (topLeft.getX() == bottomRight.getX() || topLeft.getY() == bottomRight.getY()) {
+    if (topLeft.getX() == bottomRight.getX() || topLeft.getY() == bottomRight.getY())
+    {
         return false;
     }
 
     // 确保topLeft真的是左上角点（x坐标更小，y坐标更大）
-    if (topLeft.getX() > bottomRight.getX() || topLeft.getY() < bottomRight.getY()) {
+    if (topLeft.getX() > bottomRight.getX() || topLeft.getY() < bottomRight.getY())
+    {
         return false;
     }
 
     return true;
 }
 
-bool Rectangle::setPoints(const Point& tl, const Point& br) {
+bool Rectangle::setPoints(const Point &tl, const Point &br)
+{
     topLeft = tl;
     bottomRight = br;
     return isValid();
 }
 
-bool Rectangle::inputRectangle() {
+bool Rectangle::inputRectangle()
+{
     cout << "\n请输入矩形的左上角坐标：\n";
-    if (!topLeft.inputPoint()) {
+    if (!topLeft.inputPoint())
+    {
         return false;
     }
 
     cout << "\n请输入矩形的右下角坐标：\n";
-    if (!bottomRight.inputPoint()) {
+    if (!bottomRight.inputPoint())
+    {
         return false;
     }
 
-    if (!isValid()) {
+    if (!isValid())
+    {
         cout << "错误：输入的点无法构成有效的矩形！\n";
         cout << "请确保：\n";
         cout << "1. 第一个点是左上角点（x坐标更小，y坐标更大）\n";
@@ -49,7 +57,8 @@ bool Rectangle::inputRectangle() {
     return true;
 }
 
-void Rectangle::displayInfo() const {
+void Rectangle::displayInfo() const
+{
     cout << "\n矩形信息：\n";
     cout << "左上角点：";
     topLeft.display();
@@ -58,8 +67,9 @@ void Rectangle::displayInfo() const {
     cout << "\n面积：" << getArea() << endl;
 }
 
-double Rectangle::getArea() const {
+double Rectangle::getArea() const
+{
     double width = bottomRight.getX() - topLeft.getX();
     double height = topLeft.getY() - bottomRight.getY();
     return width * height;
-} 
+}
