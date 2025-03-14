@@ -10,7 +10,7 @@ int main() {
         printf("无法打开文件\n");
         return 1;
     }
-    fprintf(file, "徐力行\n");
+    fprintf(file, "我的名字\n");
     fclose(file);
 
     // 重新打开文件，读取文件内容并打印到控制台
