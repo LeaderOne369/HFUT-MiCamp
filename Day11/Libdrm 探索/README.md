@@ -2,4 +2,4 @@
 
 - 执行后会弹出一个白色窗口，如图。
 
-![alt text](/resource/image-2.png))
+![alt text](../resource/image-2.png))
