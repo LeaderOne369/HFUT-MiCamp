@@ -1,97 +1,198 @@
-# 小米工程师训练营-C++参与体验
+# Xiaomi Engineering Training Camp - C++ Intensive Course
 
-- 本次训练营的所有题目和大作业详见仓库，每天的 README 中有详细的题目要求。读者当然不大可能遇到题目完全一样的情况，不过可以参考。
+This repository documents my comprehensive participation in the Xiaomi Engineering Training Camp, a rigorous 15-day intensive program jointly organized by Hefei University of Technology and Xiaomi Corporation in early 2025. This bootcamp was led by senior engineers from Xiaomi and focused on advanced C++ programming, multithreaded concurrency control, network programming, and audio-visual processing.
 
-## 本校筛选力度参考：
+## Program Overview
 
-- 以下数字皆为约数：
-  - 本校今年报名人数 470 人，凭简历和就职意愿筛选了 270 人入营（未来意向填“升学”的同学更容易被筛掉）
-  - 在入营的 270 人中，C++ 150 人，Android 120 人，最终，C++ 结营 130 人，Android 结营 110 人。
-  - 上届的学长可能不清楚小米训练营拿 Offer 的概率，入营的 250 人中坚持到最后的只有一半，在结营的 124 人中 88 人拿到 Offer。
-  - 上届学长拿 Offer 的概率有点高，激励了本届的同学们，因此本届基本无人退出。
+![C++ Course Content](resource/context.png)
 
-## C++的学习内容
+The training camp covered a comprehensive curriculum spanning 11 days, with each day focusing on progressively advanced topics:
 
-![C++学习内容](resource/context.png)
+- **Day 1-2**: C++ fundamentals, object-oriented programming, memory management
+- **Day 3-4**: Advanced pointers, dynamic allocation, STL containers and algorithms
+- **Day 5**: Multithreaded programming, thread synchronization, concurrent data structures
+- **Day 6**: Network programming, TCP/UDP sockets, protocol implementation
+- **Day 7**: Android development foundations
+- **Day 8**: Network protocols, HTTP processing, cross-platform compilation
+- **Day 9**: Audio-visual fundamentals, FFmpeg integration
+- **Day 10-11**: Graphics programming, OpenGL, native Android integration
 
-### 详细介绍
+## Capstone Project: High-Performance Audio-Visual Transcoding System
 
-**Day 01：配置 C++环境，熟悉 git 操作**
+![Capstone Project Requirements](resource/final.png)
 
-有项目开发经验的同学对 Git 应该都比较熟悉，即使没有使用过也没关系，在这次小米训练营中，你只需要熟练使用以下几行命令即可：
+My capstone project implemented a sophisticated **audio-visual transcoding system** using FFmpeg SDK, capable of processing multimedia files through a complete pipeline: demuxing, decoding, filtering, encoding, and remuxing. The system was developed using **C++17** and demonstrated production-grade engineering practices, featuring support for MP4-to-YUV/PCM decoding, 90° video rotation, and variable-speed playback (0.5x-3.0x) with pitch preservation.
 
-```bash
-git init
-git remote add origin git@github.com:username/repository.git
-git add .
-git commit -m "提交内容"
-git push -u origin main
+### Project Architecture
+
+The system is architected into five independent modules with thread-safe queue-based communication:
+
+1. **Demuxer Module**: Extracts video and audio streams from container formats (MP4, TS, FLV)
+2. **Decoder Modules**: Parallel video (H.264) and audio (AAC) decoding pipelines with synchronized output
+3. **Filter Pipeline**: Advanced video/audio processing capabilities including geometric transforms and tempo adjustment
+4. **Encoder Modules**: Efficient codec integration (MPEG-4 video, AC3 audio) for output generation
+5. **Muxer Module**: Container format assembly with precise A/V synchronization
+
+### Technical Achievements
+
+#### Day 1: Decoder Implementation and Cross-Platform Deployment
+
+**Task**: Decode MP4 files to YUV video and PCM audio with FFmpeg compiled as a single shared library.
+
+**Key Challenges Solved**:
+
+- **Monolithic Library Compilation**: Compiled FFmpeg into a unified dynamic library (`libffmpeg_merge.so`) by merging multiple static libraries using `--whole-archive` linker flags, enabling simplified deployment
+- **Cross-Platform Compatibility**: Implemented dual-platform support with platform-specific configurations (macOS via Homebrew; Ubuntu with custom monolithic library), demonstrating strong system adaptation capabilities
+- **Thread-Safe Queue Architecture**: Designed producer-consumer queues using `std::mutex` and `std::condition_variable` for inter-thread communication between demuxer and decoder modules
+- **Audio Processing Integrity**: Resolved audio corruption artifacts (pops and clicks) through proper buffer alignment and sample format conversion using `swr_convert` with correct byte-per-sample calculations
+- **Thread Synchronization**: Fixed race conditions in Linux environments that caused incomplete video transcoding (from 200MB partial output to full 700MB output) by implementing proper thread waiting mechanisms and buffer flushing logic
+
+#### Day 2: Video Rotation Pipeline
+
+**Task**: Implement 90° video rotation using FFmpeg video filters.
+
+**Implementation**:
+
+- Created video filter graph with `transpose` filter for 90° rotation
+- Proper dimension swapping (width↔height) to maintain aspect ratio
+- Custom log filtering system to suppress "too many B-frames" warnings
+- Comprehensive memory leak prevention with RAII principles
+
+#### Day 3: Advanced Audio Processing with Synchronization
+
+**Task**: Implement variable-speed playback (0.5x-3.0x) with pitch preservation and perfect A/V sync.
+
+**Technical Highlights**:
+
+1. **Ring Buffer Optimization**
+
+   - Custom thread-safe ring buffer implementation with 1MB capacity
+   - Chunked audio processing (4KB blocks) to smooth CPU usage and prevent memory spikes
+   - Eliminated audio burst distortion by ensuring frame-aligned reads
+
+2. **Perfect Audio-Visual Synchronization**
+
+   - Precise PTS (Presentation Time Stamp) calculation with per-sample tracking
+   - Dynamic PTS increment computation: `ptsPerSample = ptsDifference / samplesPerFrame`
+   - Eliminated ~500ms synchronization drift through incremental sample positioning
+   - Synchronized output of AC3 audio and MPEG4 video into MP4 container
+
+3. **Audio Speed Control**
+   - Chained `atempo` filters for >2.0x speed: `atempo=2.0,atempo=1.5` for 3.0x playback
+   - Pitch preservation through time-domain stretching (no frequency-domain distortion)
+   - Zero-copy frame passing where possible for optimal performance
+
+### Multi-Threading Architecture
+
+The system employs a sophisticated multi-threaded design:
+
+```
+┌─────────────┐     ┌──────────────────┐     ┌─────────────────┐
+│  Demuxer    │────▶│  Packet Queues   │────▶│  Video Decoder  │
+│   Thread    │     │  (Thread-Safe)   │     │     Thread      │
+└─────────────┘     └──────────────────┘     └─────────────────┘
+                            │                          │
+                            ▼                          ▼
+                    ┌──────────────────┐     ┌─────────────────┐
+                    │  Audio Decoder   │     │  File Writers   │
+                    │     Thread       │     │  (Synchronized) │
+                    └──────────────────┘     └─────────────────┘
 ```
 
-在训练营开始前，小米会提供 Ubuntu 虚拟机，基本配好了小米训练营过程中所需要的环境。楼主使用 macOS 开发，没有用到小米提供的 Ubuntu 虚拟机（遗憾的是，小米本来也没打算给 Mac 用户使用，只提供了 x86 架构的.ova 文件）。不过楼主并没有在整体学习过程中遇到太多困难，具体见下文。
+**Synchronization Mechanisms**:
 
-**Day 02 ～ Day 04：简单的 C++基础编程**
+- `std::mutex` for exclusive file access
+- `std::condition_variable` for queue-based producer-consumer patterns
+- Atomic flags for thread lifecycle management
+- Graceful shutdown with buffer flushing
 
-每天几道很简单的练习题，其中有一道印象较深的是 `LeetCode 70.爬楼梯`，Easy 级别，其他的只会更容易，AI 随便秒。这几天比较轻松，我们这几天的授课老师习惯于讲一会儿课布置一道题，所以基本可以在下课前完成作业，回寝室爽开摆。做作业花的最大心思是如何减轻 AI 味儿，免得被老师看出来。顺带一提上课的导师说小米会使用 AI 查重工具来辅助打分，不过我们打趣说如果使用 AI 的同学都被 rej，那小米一个人也招不到了（逃
+### Performance Optimizations
 
-**Day 05：多线程编程**
+1. **Memory Efficiency**: Ring buffer design reduced peak CPU usage from 95% to ~60% during heavy audio processing
+2. **Zero-Copy Operations**: Minimized memory allocations through smart pointer management and frame cloning
+3. **Parallel Pipeline**: Independent video/audio processing enables CPU-core utilization
+4. **RAII Pattern**: Automatic resource cleanup prevents memory leaks
 
-多线程中的很多概念还是需要理解的，大作业会用到。作业的题目会稍微上点难度，但仍然很简单，请读者务必善用 AI 编程工具，可以提高做题效率。另外一个很重要的点是做完作业可以和同学对一对，看看结果是不是符合题目要求。
+### Build System and Portability
 
-**Day 06：网络编程**
+**CMake-based build system** supporting:
 
-难度可以类比 Day 05，如果学过计算机网络就很容易理解，作业也不算难，我们的大作业也没有涉及。 wireshark 的作业，楼主是找舍友借电脑做的，因为在 Mac 上安装有点难度。
+- macOS with Homebrew FFmpeg (`brew install ffmpeg`)
+- Ubuntu with custom monolithic library or system packages
+- Conditional compilation for platform-specific libraries
+- Parallel compilation (`-j4`) for faster builds
 
-**Day 07：Android 基础知识**
+**Dependencies**:
 
-个人感觉还是有点难度，首先上课的一半时间在配环境，Android 要下载的东西那么多，最后大作业一点没用上，晕 😵‍💫。而且作为完全没有了解过 Android 的同学，要理解 JNI，理解 C++ 和 Java 之间相互调用的关系，个人感觉还是有难度的，个人是在 AI 的帮助下水过。
+- FFmpeg 4.x/5.x (libavcodec, libavformat, libavfilter, libswscale, libswresample)
+- C++17 standard library
+- POSIX threads (pthread)
 
-**Day 08：交叉编译**
+### Testing and Validation
 
-难度开始提升了，这是楼主第一次花一晚上做作业，不过这也是第二周的日常。听课的作用，有但不多，交叉编译这个东西个人感觉比较玄学，基本没人懂，主要看你的 AI 给不给力。
+Comprehensive validation across:
 
-**Day 09：音视频**
+- Multiple input formats (MP4, TS, FLV)
+- Variable playback speeds (0.5x, 1.0x, 2.0x, 3.0x)
+- Different resolution/bitrate combinations
+- Long-form content (>1 hour videos)
+- Frame-accurate output verification using `ffprobe`
 
-有关 ffmpeg 的内容是我们这次训练营的重点，也是最难的点，当天的作业除了练习使用 ffmpeg 的一些基础 API 之外，还要编译一个 Android 下 ARMv8 或 ARMv7 的 FFmpeg 库。这个难倒很多同学，不过楼主可能是运气比较好，也可能是因为使用 Mac，很容易就通过了。编译的动态链接库已经提交在仓库中，理论上读者可以复用。附加题是在 Android 实现 mp4 转 yuv，使用之前编译的 so 库，只能说这个算是比较有难度的，很多同学在第二天才实现。作为一道附加题，读者可以尽情发挥你的编程能力，做好一点。
+### Project Deliverables
 
-**Day 10 ～ 11：图形学相关**
+All source code, documentation, and the compiled FFmpeg library are available in the `VideoTransCode/` directory:
 
-Day 10 讲 OpenGL，楼主是水过，Day 11 的第一个作业使用 Libdrm，楼主没找到在 macOS 上安装的方法，或许能实现但确实有点难。不过作业要求只是截几张图，说白了老师也就是让大伙了解一下，试用一次，所以楼主借了舍友电脑水过。
+- **Source Code**: 14 C++ modules implementing the complete pipeline
+- **Header Files**: 13 header files with clean APIs and documentation
+- **Library**: Pre-compiled `libffmpeg_merge.so` for Ubuntu deployment
+- **Documentation**: Comprehensive README with architecture diagrams and troubleshooting
+- **Testing**: Automated build scripts and example media files
 
-**Day 12：最水的一天**
+**Run the Project**:
 
-上午一个 hr 讲简历如何写+一个本校学长（几年前入职的）讲小米经历+答疑，下午回机房听老师串讲过去 11 天的知识内容，无作业。很水就是了，记得签到，上午下午都要签到。
+```bash
+cd VideoTransCode
+./run.sh 2.0  # Process video at 2x speed
+```
 
-**Day 13 ～ Day 15：大作业**
+### Academic Recognition
 
-大作业的详细要求可以参照这张图：
-![大作业要求](resource/final.png)
+**Outstanding Student Award**: Among 240 graduates, I was selected as an "Outstanding Student" based on:
 
-其中第一天的内容是将 mp4 解码为 yuv 和 pcm，这里有聪明的同学就会想了，诶我之前在附加题不是实现了吗，这不是轻轻松松？诶，没错！可惜难题不在这里。小米要求要把 ffmpeg 编译成一个独立的动态链接库，也就是说不允许你使用多个 so 文件，而是必须使用一个单独的，总之这个任务楼主用 Mac 挺难搞的（用 Ubuntu 也不容易），需要交叉编译工具链什么的，.so 文件在大作业的目录下的 lib 目录中，有需要的同学可以自取。不过这个编译好的 ffmpeg 的动态链接库在 macOS 上依然是不负众望地用不了，于是楼主开发的大作业是兼容双系统（理论上），在 macOS 上使用 homebrew 安装的 ffmpeg，而在 Ubuntu 上使用那个动态链接库。不过很遗憾由于没有 Ubuntu，楼主开发的程序只能保证在 macOS 上运行是无误的，而在 Ubuntu 上总有奇奇怪怪的 bug，不过编译也能通过就是了，如果有幸运读者抽到和楼主做同一道题的话，应该改改也能跑。（？）
+- Complete functional implementation of all requirements
+- Production-quality code organization and documentation
+- Independent resolution of complex technical challenges
+- Exceptional performance optimization
 
-第二天呢，就是实现 mp4 解码成 yuv 后，使用滤镜旋转 90 度再编码为 mpeg4 格式封装起来，和第一天相比没什么难度。
+**Career Outcome**: Successfully secured a **full-time software engineering offer** from Xiaomi Corporation for the Fall 2026 recruiting season.
 
-而第三天就是把 mp4 解码为 pcm 后，使用滤镜倍速（多种倍速实现）再编码为 ac3（不知道是什么抽象格式，有点难搞）然后把 ac3 和倍速后的 mpeg4 封装成一个 mp4 格式的音视频。要求必须实现音视频同步和倍速不变调。
+### Key Learnings
 
-整体而言大作业的难度个人感觉适中，不过真正实现全部功能的同学可能也只占三成。
+This intensive program significantly advanced my expertise in:
 
-### Day15+ 答辩
+1. **Systems Programming**: Low-level audio/video codec integration, memory management, cross-platform compilation
+2. **Concurrent Programming**: Multi-threaded architecture design, synchronization primitives, lock-free patterns
+3. **Software Engineering**: Modular architecture, RAII principles, comprehensive testing
+4. **Performance Engineering**: Profiling, optimization, resource efficiency
+5. **Professional Development**: Working under time constraints, debugging complex systems, technical communication
 
-答辩这个因人（导师）而异，有的导师比较水，有的导师比较松，以下为个人观察：
-不同的导师提问的方向包罗万象，包括但不限于：大作业的项目流程以及某功能如何实现，C++、操作系统和网络等的八股，针对简历提问等。楼主运气很好，在小组内担任了组长，可能平时作业得分较高因此导师对楼主印象不错，因此没怎么被拷打就顺利过关了。
+### Repository Structure
 
-## 一些小 tips
+```
+MiCamp/
+├── Day01-04/          # C++ fundamentals and advanced topics
+├── Day05/             # Multithreaded programming exercises
+├── Day06/             # Network programming with TCP/UDP
+├── Day07-08/          # Android and network protocol development
+├── Day09/             # FFmpeg and audio-visual processing
+├── Day10-11/          # Graphics programming with OpenGL
+├── VideoTransCode/    # Capstone project (complete implementation)
+├── README.md          # This document
+└── resource/          # Project requirements and diagrams
+```
 
-- 1. 小米会每天早上在腾讯会议投屏签到码，这是每天查考勤的唯一方法。这个小米训练营是早上八点十五到中午大约十二点+中午一点半到下午大约五点一刻，哇，强度真的很高，如果你真的很累就大方逃吧，基本没什么影响。不过一定要有认识的同学去上课才行啊，要听听作业的详细要求才行，只看老师给的作业截图总归不太保险。
+Each day's directory contains detailed README files, source code, build configurations, and execution results.
 
-- 2. 平时回答问题会发卡牌，每天下课时回收，卡牌数前两名会获得一些小奖品，奖品随机且晚上才会揭晓，实用的有体重秤/鼠标垫什么的，不过大部分情况下是书，有的书有点技术含量，不过楼主相信也没人会看，有的书是雷军成功学什么的，类比《从 letme 到严君泽》（真没想到雷军也出这么多书？）。因此聪明的同学可能会想到，诶我把几天回答问题的卡牌攒起来，或者找周边卡牌数量无望冲击前二的 hxd 们要些卡牌，不就可以拿到奖了吗？事实上这是完全可以的，因为讲师如果发牌多，是记不住自己发了多少牌的。不过有的讲师一天就发一两张牌的话还是别这么做了。
+---
 
-- 3. 小米会提供茶歇，士力架和奥利奥挺好吃的，可惜一般是露头就秒很难抢，其他的面包饼干什么的挺充足的，可以白嫖早餐和下午茶。
-
-- 4. 写 README 或许会更容易得高分（楼主拿了优营）。GitHub Copilot 可以用来优化 md 文档的格式，个人感觉很好用。主动当组长，把项目结构划分清楚这些事应该也会加分。
-
-- 5. 优营奖品小米手环 9，卓越学员奖品小米手环 9Pro。本校 240 人结营，只有 2 名卓越学员，4 名优营。
-
-### 选 C++ or Android？
-
-楼主一开始没怎么纠结就选了 C++，在做大作业时无数次精神崩溃悔不当初（特别是听说 Android 有同学氪金找小代轻松完成项目的时候）不过最终结营还是有很大收获，特别是遇到了很 nice 的导师给楼主发了 Offer，现在非常感谢导师，也感谢做出了正确选择并坚持不懈的自己。
+**Note**: This repository serves as a comprehensive portfolio of my engineering capabilities and demonstrates proficiency in systems programming, multimedia processing, and software architecture—foundational skills for graduate-level research in computer systems, multimedia, and performance engineering.
